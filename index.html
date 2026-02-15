@@ -12,5 +12,111 @@
   <link rel="stylesheet" href="./src/styles/main.css" />
   <script defer src="./src/scripts/main.js"></script>
   <title>Age Calculator</title>
-  <body></body>
+  <body>
+    <article class="calculator">
+      <form class="form">
+        <div class="fields-container">
+          <div class="field">
+            <label for="input-day" class="label label--day">DAY</label>
+            <input
+              type="text"
+              name="input-day"
+              id="input-day"
+              class="input input--day"
+              placeholder="DD"
+              pattern="^\d{1,2}$"
+              maxlength="2"
+              aria-describedby="error-msg-day"
+              required
+            />
+            <p
+              id="error-msg-day"
+              class="error-msg error-msg--day"
+              aria-hidden="true"
+              aria-live="polite"
+            >
+              Message
+            </p>
+          </div>
+          <div class="field">
+            <label for="input-month" class="label label--month">MONTH</label>
+            <input
+              type="text"
+              name="input-month"
+              id="input-month"
+              class="input input--month"
+              pattern="^\d{1,2}$"
+              placeholder="MM"
+              maxlength="2"
+              aria-describedby="error-msg-month"
+              required
+            />
+            <p
+              id="error-msg-month"
+              class="error-msg error-msg--month"
+              aria-hidden="true"
+              aria-live="polite"
+            >
+              Message
+            </p>
+          </div>
+          <div class="field">
+            <label for="input-year" class="label label--year">YEAR</label>
+            <input
+              type="text"
+              name="input-year"
+              id="input-year"
+              class="input input--year"
+              pattern="^\d{4}$"
+              placeholder="YYYY"
+              maxlength="4"
+              aria-describedby="error-msg-year"
+              required
+            />
+            <p
+              id="error-msg-year"
+              class="error-msg error-msg--year"
+              aria-hidden="true"
+              aria-live="polite"
+            >
+              Message
+            </p>
+          </div>
+        </div>
+        <div class="submit-form-container">
+          <button
+            type="submit"
+            class="submit-btn"
+            aria-label="Calculate age by submiting the form"
+          >
+            <img
+              src="assets/images/icon-arrow.svg"
+              alt="arrow down"
+              aria-hidden="true"
+            />
+          </button>
+        </div>
+      </form>
+      <dl class="results">
+        <div class="result">
+          <dd class="definition definition--years">&dash;&dash;</dd>
+          <dt class="term">
+            <strong>years</strong>
+          </dt>
+        </div>
+        <div class="result">
+          <dd class="definition definition--months">&dash;&dash;</dd>
+          <dt class="term">
+            <strong>months</strong>
+          </dt>
+        </div>
+        <div class="result">
+          <dd class="definition definition--days">&dash;&dash;</dd>
+          <dt class="term">
+            <strong>days</strong>
+          </dt>
+        </div>
+      </dl>
+    </article>
+  </body>
 </html>
