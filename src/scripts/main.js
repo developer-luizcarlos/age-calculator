@@ -143,7 +143,7 @@ function handleYearInputChange(event) {
   const currentYear = new Date().getFullYear();
 
   const isInputValueValid = checkNumericInputValueIsValid(input, {
-    from: 1990,
+    from: 1900,
     to: currentYear,
   });
 
