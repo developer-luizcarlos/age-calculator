@@ -35,6 +35,33 @@ if (yearInput instanceof HTMLInputElement) {
 function handleSubmitButtonClick(event) {
   // stop triggering required inputs alert message
   event.preventDefault();
+
+  const inputs = [...document.querySelectorAll(".input")];
+  const inputsValues = inputs.map((input) => input.value.trim());
+
+  const checkInputsAreFilled = inputsValues.every((value) => {
+    return value !== "";
+  });
+
+  if (!checkInputsAreFilled) {
+    const notFilledInputs = inputs.filter((el) => {
+      return el.value.trim() === "";
+    });
+
+    // highlight with error not filled inputs
+    notFilledInputs.forEach((input) => {
+      highlightFormFieldBasedOnCondition(
+        false,
+        input.parentElement,
+        "This field is required",
+      );
+    });
+
+    // Focus on the first not filled input
+    notFilledInputs[0].focus();
+
+    return;
+  }
 }
 
 function handleDayInputChange(event) {
