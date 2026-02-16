@@ -1,5 +1,6 @@
-import { highlightFormFieldBasedOnCondition } from "./highlightFormFieldBasedOnCondition.js";
 import { checkNumericInputValueIsValid } from "./checkNumericInputValueIsValid.js";
+import { highlightFormFieldBasedOnCondition } from "./highlightFormFieldBasedOnCondition.js";
+import { isValidDate } from "./isValidDate.js";
 
 // Dom Elements
 const form = document.querySelector(".form");
@@ -62,6 +63,26 @@ function handleSubmitButtonClick(event) {
 
     return;
   }
+
+  const day = parseInt(dayInput.value.trim());
+  const month = parseInt(monthInput.value.trim());
+  const year = parseInt(yearInput.value.trim());
+
+  if (!isValidDate(day, month, year)) {
+    inputs.forEach((el, index) => {
+      let errorMsg = index === 0 ? "Must be a valid date" : "";
+
+      highlightFormFieldBasedOnCondition(false, el.parentElement, errorMsg);
+    });
+
+    inputs[0].focus();
+
+    return;
+  }
+
+  inputs.forEach((el, index) => {
+    highlightFormFieldBasedOnCondition(true, el.parentElement, "");
+  });
 }
 
 function handleDayInputChange(event) {
