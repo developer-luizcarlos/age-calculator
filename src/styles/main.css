@@ -52,6 +52,10 @@ body {
   max-width: 150px;
 }
 
+.input:focus {
+  outline: 1px solid hsl(259, 100%, 65%);
+}
+
 .input::placeholder {
   color: hsl(0, 1%, 44%);
 }
