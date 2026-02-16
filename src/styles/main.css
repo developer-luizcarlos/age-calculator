@@ -63,7 +63,6 @@ body {
 .error-msg {
   color: hsl(0, 100%, 67%);
   font-size: 0.85rem;
-  visibility: hidden;
 }
 
 .submit-form-container {

@@ -36,7 +36,5 @@ export function highlightFormFieldBasedOnCondition(condition, field, errorMsg) {
 
   label.style.color = condition ? "hsl(0, 1%, 44%)" : "hsl(0, 100%, 67%)";
 
-  errorMsgEl.ariaHidden = condition;
-  errorMsgEl.style.visibility = condition ? "hidden" : "visible";
-  errorMsgEl.textContent = errorMsg;
+  errorMsgEl.textContent = condition ? "" : errorMsg;
 }
