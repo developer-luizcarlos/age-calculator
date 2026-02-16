@@ -1,3 +1,4 @@
+import { calculateAge } from "./calculateAge.js";
 import { checkNumericInputValueIsValid } from "./checkNumericInputValueIsValid.js";
 import { highlightFormFieldBasedOnCondition } from "./highlightFormFieldBasedOnCondition.js";
 import { isValidDate } from "./isValidDate.js";
@@ -8,6 +9,9 @@ const submitButton = document.querySelector(".submit-btn");
 const dayInput = document.querySelector("#input-day");
 const monthInput = document.querySelector("#input-month");
 const yearInput = document.querySelector("#input-year");
+const daysOutputEl = document.querySelector(".definition--days");
+const yearsOutputEl = document.querySelector(".definition--years");
+const monthsOutputEl = document.querySelector(".definition--months");
 
 // Listeners
 if (form instanceof HTMLFormElement) {
@@ -83,6 +87,24 @@ function handleSubmitButtonClick(event) {
   inputs.forEach((el, index) => {
     highlightFormFieldBasedOnCondition(true, el.parentElement, "");
   });
+
+  try {
+    const { passedDays, passedMonths, passedYears } = calculateAge(
+      day,
+      month,
+      year,
+    );
+
+    daysOutputEl.textContent = passedDays < 10 ? `0${passedDays}` : passedDays;
+
+    monthsOutputEl.textContent =
+      passedMonths < 10 ? `0${passedMonths}` : passedMonths;
+
+    yearsOutputEl.textContent =
+      passedYears < 10 ? `0${passedYears}` : passedYears;
+  } catch (error) {
+    alert(error.message);
+  }
 }
 
 function handleDayInputChange(event) {
