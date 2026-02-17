@@ -33,9 +33,9 @@ body {
 }
 
 .field {
-  display: flex;
-  flex-direction: column;
-  row-gap: 5px;
+  display: grid;
+  grid-template-rows: 1fr auto 1fr;
+  row-gap: 3px;
 }
 
 .label {
