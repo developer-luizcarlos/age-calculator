@@ -89,7 +89,8 @@ body {
   transition: background-color 0.3s ease;
 }
 
-.submit-btn:hover {
+.submit-btn:hover,
+.submit-btn:active {
   background-color: hsl(0, 0%, 0%);
 }
 
